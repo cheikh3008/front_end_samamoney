@@ -1,0 +1,30 @@
+form{
+  margin-top: -10px;
+}
+mat-label {
+  font-size: 18px;
+}
+mat-form-field{
+  width: 190px;
+  padding: 7px;
+  font-size: 10px;
+  vertical-align: middle;
+  margin-top: 15px;
+}
+
+.search-parts{
+  background-color: lightgray;
+  color: gray;
+  text-align: center;
+  padding: 3px;
+  margin: 10px 3px;
+  width: 180px;
+  cursor: pointer;
+  font-size: 10px;
+  height: auto;
+  cursor: pointer;
+  transition:  1s ease-in-out;
+}
+.search-parts:hover{
+  background-color: darkgrey;
+}

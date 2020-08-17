@@ -1,0 +1,109 @@
+<!--
+
+<div class="container">
+  <h1>
+    Ajouter un utlisateur
+  </h1>
+  <form [formGroup]="userForm"   >
+
+    <label for="prenom">Prenom</label>
+    <input type="text" class="form-control" formControlName="prenom" id="prenom">
+
+    <label for="nom">Nom</label>
+    <input type="text" class="form-control" formControlName="nom" id="nom">
+
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" formControlName="email" id="email" >
+
+    <label for="password">Password</label>
+    <input type="password" class="form-control" formControlName="password" id="password">
+    <div class="form-group">
+      <label for="role">Ajouter un role</label>
+      <select class="form-control" id="role"  formControlName="role">
+        <option *ngFor="let role of roles" value="{{role.id}}" >{{role.libelle}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="onSubmitForm()">Submit</button>
+  </form>
+
+</div>
+-->
+<div class="card container" *ngIf="isPartenaire()">
+  <h2 >AJOUTER UN UTILISATEUR PARTENAIRE
+  </h2>
+  <div style="overflow:auto; margin-bottom: 30px">
+
+    <div class="mat-elevation-z8" >
+      <mat-divider></mat-divider>
+      <form [formGroup]="userForm"  >
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le prénom" formControlName="prenom" class="input">
+          </label>
+          <mat-error *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.prenom.errors.required">Veuillez taper le prénom</mat-error>
+            <mat-error *ngIf="f.prenom.errors.pattern">Le prénom doit contenir seulement des lettres </mat-error>
+            <mat-error *ngIf="f.prenom.errors.minlength">Le prénom doit contenir au minimu 3 lettres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nom</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le nom" formControlName="nom">
+          </label>
+          <mat-error *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.nom.errors.required">Veuillez taper le nom</mat-error>
+            <mat-error *ngIf="f.nom.errors.pattern">Le nom doit contenir seulement des lettres </mat-error>
+            <mat-error *ngIf="f.nom.errors.minlength">Le nom doit contenir au minimu 2 lettres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <label>
+            <input matInput placeholder="Tapez l'email" formControlName="email">
+          </label>
+          <mat-error *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.email.errors.required">Veuillez taper l'adresse email</mat-error>
+            <mat-error *ngIf="f.email.errors.email">L'adresse email n'est pas valide </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Mot de passe </mat-label>
+          <label>
+            <input matInput placeholder="Tapez le mot de passe"  type="password" formControlName="password">
+          </label>
+          <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.password.errors.required">Veuillez taper le mot de passe </mat-error>
+            <mat-error *ngIf="f.password.errors.minlength">Le mot de passe doit contenir au minimu 5 caractères </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Retapez le mot de passe</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le Retapez le mot de passe"  type="password" formControlName="passwordComfirm" >
+          </label>
+          <mat-error *ngIf="submitted && f.passwordComfirm.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.passwordComfirm.errors.required">Veuillez confirmer le mot de passe </mat-error>
+            <mat-error *ngIf="f.passwordComfirm.errors.mustMatch">les deux mots de passe ne sont pas identiques</mat-error>
+            <mat-error *ngIf="f.passwordComfirm.errors.minlength">Le mot de passe doit contenir au minimu 5 caractères </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="role" placeholder="Roles"  class="select"   >
+            <label>
+              <mat-option *ngFor="let role of roles" [value]="role.libelle">
+                {{role.libelle}}
+              </mat-option>
+            </label>
+          </mat-select>
+          <mat-error *ngIf="submitted && f.role.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.role.errors.required">Veuillez choisir un role </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <button mat-flat-button class="btn"  type="submit"  (click)="onSubmitForm()" >ENREGISTRER</button>
+      </form>
+    </div>
+  </div>
+</div>

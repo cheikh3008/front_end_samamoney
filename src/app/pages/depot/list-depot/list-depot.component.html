@@ -1,0 +1,48 @@
+
+<div class="card container">
+  <h2 class="mt-2 " >LISTE DES DEPOTS
+    <a mat-list-item routerLinkActive="list-item-active" *ngIf="isAdmin()" routerLink="/add-depots" class="add" >
+      <mat-icon class="add-user" title="Ajouter">add_circle  </mat-icon>
+    </a>
+  </h2>
+  <div style="overflow:auto;">
+
+    <div class="mat-elevation-z8" >
+
+      <mat-divider></mat-divider>
+      <mat-table [dataSource]=" listData"  >
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+
+        <ng-container matColumnDef="id" >
+          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataDepot">
+            {{dataDepot.id}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="numCompte">
+          <mat-header-cell *matHeaderCellDef  >NUMERO DE COMPTE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataCompte">
+            {{dataCompte.numCompte}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="montant">
+          <mat-header-cell *matHeaderCellDef  >Montant</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataCompte">
+            {{dataCompte.montant}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+          <mat-header-cell *matHeaderCellDef  >DATE DE CREATION</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataCompte">
+            {{dataCompte.createdAt| date: 'dd/MM/yyyy'}}
+          </mat-header-cell>
+        </ng-container>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>
+

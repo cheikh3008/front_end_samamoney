@@ -1,0 +1,47 @@
+<div id="dataContrat" >
+  <div *ngFor="let data of dataContrat">
+    <h2>Contrat de partenariat</h2>
+    <p>  <span>Le present contrat est signé et prend effet à compter du {{data.createdAt.date |   date:'dd-MM-yyyy hh:mm:ss '}}</span></p>
+    <p><strong>Entre les soussignés :</strong></p>
+    <p>La socièté CASH-MONEY immatriculé au Registre du Commerce et des Sociétés sous le numéro  :
+      3000893 demeurant à Yarakh CAPA est représentée par Monsieur Cheikh DIENG.
+    </p>
+    <p>D'une part,</p>
+    <p>Et Monsieur/Madame {{data.prenom}} {{data.nom}}, immatriculé au Registre du Commerce et des Sociétés sous le numéro
+      {{data.rc}} et le Ninéa {{data.ninea}} demeurant à Dakar.
+
+    </p>
+    <p>D'autre part,</p>
+    <p>Dénommées conjointement ou individuellement ci-après « Les parties » ou « La partie »,</p>
+    <h4>IL A ETE PREALABLEMENT EXPOSE CE QUI SUIT :</h4>
+    <p>Le présent contrat est établi en tant que CONTRAT DE PARTENARIAT.</p>
+    <h4>IL A ETE CONVENU CE QUI SUIT : </h4>
+    <ul>
+      <li>
+        <strong>Article 1</strong> :<p> Le présent contrat est un contrat de partenariat ayant pour objet de réaliser une plateforme qui permet de gérer un réseau de transfert d'argent.
+        Dans le cadre du présent accord, CASH-MONEY a pour rôle de faciliter les nagivation sur la plateforme et de simplifier les
+        diverses.</p>
+      </li>
+      <li>
+        <strong>Article 2</strong> :<p> Fonctions et attributions, Le partenaire est engagé en qualité d’utiliser notre plateforme pour créer des utlisateurs,
+        affecter ces derniers à des comptes et effectuer des transactions sur ses comptes.</p>
+      </li>
+      <li>
+        <strong>Article 3</strong> :<p> En contrepartie, le partenaire percevra une rémunération sur chaque transaction effectuée à savoir:</p>
+        <ul>
+          <li class="sub-li"><strong>-</strong> 10% sur les frais pour les envois</li>
+          <li class="sub-li"><strong>-</strong> 20% sur les frais pour les retraits</li>
+          <br>
+        </ul>
+      </li>
+      <li>
+        <strong>Article 4</strong> :<p> Le présent contrat pourra être résilié, en dehors de toute faute, à tout instant par chacune des parties, sous la
+        réserve d'un préavis de deux semaines.</p>
+      </li>
+    </ul>
+    <br> <br>
+    <footer>
+      <p style="text-align: center"><strong>CASH-MONEY </strong> 75 rue Yarakh CAPA Tel: 77-304-32-48 Fixe : 33-832-00-22 Email: cash-money@gmail.com</p>
+    </footer>
+  </div>
+</div>

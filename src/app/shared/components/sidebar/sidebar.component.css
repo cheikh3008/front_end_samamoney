@@ -1,0 +1,100 @@
+.profil-card{
+  text-align: center;
+  padding: 0 20px 20px 20px;
+
+}
+mat-nav-list{
+  width: 100%;
+}
+h2{
+  font-size: 18px;
+}
+h2,p{
+  line-height: 1em;
+  color: #696969;
+  font-weight: 500;
+}
+p{
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}
+.profil-img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.item-a{
+  font-weight: 400;
+}
+.item-a, .sub-logo {
+  font-size: 12px;
+  padding-left: 12px;
+  color: #696969;
+}
+a:hover, label:hover{
+  cursor: pointer;
+  color: darkgray;
+}
+
+.dashboard{
+  text-decoration: none;
+  padding: 2px;
+  color: #696969;
+}
+.multi-level , .item ul, .nav input{
+  display: none;
+}
+.multi-level, .item input:checked ~ ul {
+  display: block;
+}
+.logo{
+  width: 18px;
+  height: 18px;
+  vertical-align: center;
+  float: left;
+  z-index: 0;
+  margin: 10px 1em 0 1.5em;
+  color: #696969;
+}
+label{
+  width: 100%;
+  display: block;
+  z-index: 3;
+  position: relative;
+  transition: 1s ease-in-out;
+}
+.nav{
+  width: 100%;
+  /*overflow-x: hidden;*/
+}
+
+.nav ul, .nav li, label {
+  line-height: 40px;
+  margin: 0;
+  padding: 0 1em;
+  list-style: none;
+  text-decoration: none;
+  font-weight: 400;
+  width: 100%;
+  color: #696969;
+
+}
+.item ul{
+  padding: 0 0.2em;
+}
+.nav li{
+  line-height: 30px;
+  margin: 0;
+  padding: 0 1.5em;
+  list-style: none;
+  text-decoration: none;
+  color: #696969;
+  font-weight: 100;
+  width: 100%;
+}
+.test:hover{
+  background-color: #eeeff0;
+}
+

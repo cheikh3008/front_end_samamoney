@@ -1,0 +1,130 @@
+<div *ngIf="isAdmin()">
+<div class="card-bloc"   *ngFor="let data of dataCount" >
+  <div>
+    <mat-card class="card-content">
+       <div style="float: left">
+         <mat-card class="card-sub" style="background-color: #f99102"><i class="fas fa-user"></i></mat-card>
+       </div>
+      <div style="float: right;"><p><strong>{{data.user}}</strong> <br> Utlisateurs</p></div>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card-content">
+       <div style="float: left">
+         <mat-card class="card-sub" style="background-color: #469c49"><i class="fas fa-handshake "></i></mat-card>
+       </div>
+      <div style="float: right;"><p><strong>{{data.partenaire}} </strong><br> Partenaires</p></div>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card-content">
+       <div style="float: left">
+         <mat-card class="card-sub" style="background-color: #d63933"><i class="fas fa-coins "></i></mat-card>
+       </div>
+      <div style="float: right;"><p><strong>{{data.compte}}</strong> <br> Comptes</p></div>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card-content">
+       <div style="float: left">
+         <mat-card class="card-sub" style="background-color: #009fe3"><i class="fas fa-hand-holding-usd  "></i></mat-card>
+       </div>
+      <div style="float: right;"><p><strong>{{data.depot}}</strong> <br> Dépots</p></div>
+    </mat-card>
+  </div>
+</div>
+
+<div id="bloc-charts-systeme">
+   <div >
+      <mat-card class="bloc-charts" >
+          <canvas id="chartLineSysteme"></canvas>
+        <mat-divider></mat-divider>
+        <ul>
+          <span style="background-color: #f99102" > </span><li>Users</li>
+          <span style="background-color: #469c49 "></span><li>Partenaires</li>
+          <span style="background-color: #d63933"></span><li>Comptes</li>
+          <span style="background-color: #009fe3"></span><li>Dépots</li>
+        </ul>
+        </mat-card>
+    </div>
+    <div >
+      <mat-card class="bloc-charts">
+          <canvas id="chartBarSysteme"></canvas>
+        <mat-divider></mat-divider>
+        <ul>
+          <span style="background-color: #f99102" > </span><li>Users</li>
+          <span style="background-color: #469c49 "></span><li>Partenaires</li>
+          <span style="background-color: #d63933"></span><li>Comptes</li>
+          <span style="background-color: #009fe3"></span><li>Dépots</li>
+        </ul>
+      </mat-card>
+    </div>
+</div>
+</div>
+
+<div *ngIf="isPartenaire()">
+  <div class="card-bloc"   *ngFor="let data of dataCount" >
+    <div>
+      <mat-card class="card-content">
+        <div style="float: left">
+          <mat-card class="card-sub" style="background-color: #f99102"><i class="fas fa-user"></i></mat-card>
+        </div>
+        <div style="float: right;"><p><strong>{{data.user}}</strong> <br> Utlisateurs</p></div>
+      </mat-card>
+    </div>
+    <div>
+      <mat-card class="card-content">
+        <div style="float: left">
+          <mat-card class="card-sub" style="background-color: #469c49"><i class="fas fa-handshake "></i></mat-card>
+        </div>
+        <div style="float: right;"><p><strong>{{data.compte}} </strong><br> Compte</p></div>
+      </mat-card>
+    </div>
+    <div>
+      <mat-card class="card-content">
+        <div style="float: left">
+          <mat-card class="card-sub" style="background-color: #d63933"><i class="fas fa-coins "></i></mat-card>
+        </div>
+        <div style="float: right;"><p><strong>{{data.envoi}}</strong> <br> Envois</p></div>
+      </mat-card>
+    </div>
+    <div>
+      <mat-card class="card-content">
+        <div style="float: left">
+          <mat-card class="card-sub" style="background-color: #009fe3"><i class="fas fa-hand-holding-usd  "></i></mat-card>
+        </div>
+        <div style="float: right;"><p><strong>{{data.retrait}}</strong> <br> Retraits</p></div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div id="bloc-charts-partenaire">
+    <div >
+      <mat-card class="bloc-charts" >
+        <canvas id="chartLinePartenaire"></canvas>
+        <mat-divider></mat-divider>
+        <ul>
+          <span style="background-color: #f99102" > </span><li>Users</li>
+          <span style="background-color: #469c49 "></span><li>Comptes</li>
+          <span style="background-color: #d63933"></span><li>Envois</li>
+          <span style="background-color: #009fe3"></span><li>Retraits</li>
+        </ul>
+      </mat-card>
+    </div>
+    <div >
+      <mat-card class="bloc-charts">
+        <canvas id="chartBarPartenaire"></canvas>
+        <mat-divider></mat-divider>
+        <ul>
+          <span style="background-color: #f99102" > </span><li>Users</li>
+          <span style="background-color: #469c49 "></span><li>Comptes</li>
+          <span style="background-color: #d63933"></span><li>Envois</li>
+          <span style="background-color: #009fe3"></span><li>Retraits</li>
+        </ul>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
+

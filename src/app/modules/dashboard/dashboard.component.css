@@ -1,0 +1,63 @@
+.card-bloc, #bloc-charts-systeme, #bloc-charts-partenaire{
+  width: 100%;
+  padding: 0;
+}
+.card-bloc{
+  margin: 0 5px 10px 5px;
+}
+#bloc-charts-systeme, #bloc-charts-partenaire{
+  margin:0 5px 15px 5px;
+}
+.card-content{
+  margin:10px 10px 50px 10px;
+  width: 23%;
+  height: 100px;
+  float: left;
+  background-color: #ffffff;
+  position: relative;
+}
+.card-sub{
+  width: 130%;
+  bottom: 35px;
+  text-align: center;
+}
+.fas{
+  font-size: 30px;
+  color: #ffffff;
+}
+strong{
+  font-size: 30px;
+}
+p{
+  margin-bottom: 100px;
+  text-align: center;
+  font-weight: 500;
+}
+.bloc-charts{
+  width: 48%;
+  height: 300px;
+  margin:10px;
+  padding: 0;
+  float: left;
+  position: relative;
+}
+.bloc-charts-sub{
+  margin: 20px;
+  bottom: 20px;
+}
+ul{
+  display: inline-block;
+  margin-left: 10px;
+}
+li{
+  float: left;
+  padding: 15px;
+  list-style: none;
+  vertical-align: middle;
+}
+span{
+  float: left;
+  padding: 5px;
+  margin: 23px 0 0 0;
+  vertical-align: middle;
+}

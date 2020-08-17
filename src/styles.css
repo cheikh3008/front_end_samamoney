@@ -1,1 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family:  "Helvetica Neue", sans-serif; }
+.add {
+  float: right;
+  color: forestgreen;
+  margin-top: 3px;
+}
+.add-user:hover{
+  text-decoration: none;
+  color: darkgreen;
+}
+.action-btn{
+  background-color: white ;
+  border: none
+}
+.add:hover{
+  text-decoration: none;
+  color: darkgreen;
+}
+/* Style pour le formulaire */
+h2{
+  padding-top: 20px;
+}
+form{
+  margin-top: 30px;
+  padding-left: 20px;
+}
+mat-label {
+  font-size: 15px;
+}
+.mat-form-field{
+  width: 470px;
+  padding: 8px;
+  font-size: 10px;
+}
+.text-danger{
+  font-size: 20px;
+}
+mat-error{
+  font-size: 12px;
+}
+/*Style pour le formulaire de recherche*/
+.search{
+  background-color: lightgray;
+  padding: 40px;
+  color: gray;
+  width: 130px;
+  cursor: pointer;
+  transition: ease-in-out 1s;
+  padding: 8px;
+  font-size: 10px;
+}
+.search:hover{
+  background-color: darkgrey;
+}
+.select{
+  height: 17px;
+}
+mat-divider{
+  margin-top: -10px;
+}
+.form-search{
+  margin-top: -3px;
+}
+.btn{
+  width: 940px;
+  padding: 15px;
+  background-color: #009fe3;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn:hover{
+  color: white;
+}
+mat-table, mat-header-row, mat-row{
+  text-align: center;
+}
+mat-header-cell {
+  flex-direction: column;
+  justify-content: center;
+}

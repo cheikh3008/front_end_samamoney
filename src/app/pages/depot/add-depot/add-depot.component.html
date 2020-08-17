@@ -1,0 +1,79 @@
+<div class="card container" *ngIf="isAdmin() || isCaissier()">
+  <div style="overflow:auto;">
+    <div class="mat-elevation-z8" >
+  <h2 >FAIRE UN DEPOT
+  </h2>
+      <mat-divider></mat-divider>
+      <form [formGroup]="searchForm" class="form-search" >
+        <mat-form-field appearance="outline">
+          <mat-label>Numéro de Compte</mat-label>
+          <label>
+            <input matInput placeholder="Tapez numéro de compte" formControlName="numCompte"  >
+          </label>
+          <mat-error *ngIf="submitted && f.numCompte.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.numCompte.errors.required">Veuillez taper le numéro de compte</mat-error>
+            <mat-error *ngIf="f.numCompte.errors.pattern">Le numéro de compte doit contenir seulement 9 chiffres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <button mat-flat-button  type="submit"  (click)="onSubmitSearch()" class="search" >RECHERCHER</button>
+      </form>
+  <div *ngFor="let data of dataSearch">
+  <form [formGroup]="depotForm"   >
+    <mat-form-field appearance="outline">
+      <mat-label>PRENOM</mat-label>
+      <label>
+        <input matInput placeholder="Tapez numéro de compte" [value]="data.prenom" class="input" disabled >
+      </label>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>NOM</mat-label>
+      <label>
+        <input matInput placeholder="Tapez numéro de compte" [value]="data.nom" class="input" disabled >
+      </label>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>EMAIL</mat-label>
+      <label>
+        <input matInput placeholder="Tapez numéro de compte" [value]="data.email" class="input" disabled >
+      </label>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>NINEA</mat-label>
+      <label>
+        <input matInput placeholder="Tapez numéro de compte" [value]="data.ninea" class="input" disabled >
+      </label>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>REGISTRE DE COMMERCE</mat-label>
+      <label>
+        <input matInput placeholder="Tapez numéro de compte" [value]="data.rc" class="input" disabled >
+      </label>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Numéro de Compte</mat-label>
+      <label>
+        <input matInput placeholder="Tapez numéro de compte" [value]="data.numCompte" class="input" disabled >
+      </label>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Solde</mat-label>
+      <label>
+        <input matInput placeholder="Tapez numéro de compte" [value]="data.solde" class="input" disabled>
+      </label>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Montant à déposer</mat-label>
+      <label>
+        <input matInput placeholder="Tapez numéro de compte" formControlName="montant" class="input" >
+      </label>
+      <mat-error *ngIf="submitted && g.montant.errors" class="invalid-feedback">
+        <mat-error *ngIf="g.montant.errors.required">Veuillez taper le montant à déposer</mat-error>
+        <mat-error *ngIf="g.montant.errors.pattern">Le monatnt doit contenir seulement des chiffres </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <button mat-flat-button class="btn" type="submit" (click)="onSubmitForm()" >ENREGISTRER</button>
+  </form>
+</div>
+  </div>
+</div>
+</div>

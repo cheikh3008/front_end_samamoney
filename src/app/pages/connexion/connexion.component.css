@@ -1,0 +1,61 @@
+body{
+  background-color: #009fe3 !important;
+  overflow: hidden;
+}
+.main-section{
+  margin: 150px auto 0;
+  padding: 0;
+}
+.fa-user-lock{
+  color: #009fe3;
+  font-size: 100px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.modal-content{
+  background-color: #ffffff;
+  width: 500px;
+  height: 390px;
+
+}
+.fa-user,.fa-lock{
+  position: absolute;
+  left: 28px;
+  margin-top: -35px;
+  padding-right: 10px;
+  font-size: 20px;
+  color: #009fe3;
+}
+.form-group{
+  margin-bottom: 25px;
+}
+.form-group input{
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  font-size: 20px;
+  padding-left:40px;
+  box-shadow: 3px 2px 2px lightgray;
+}
+
+.button{
+  margin: 5px 0 25px;
+
+}
+.btn{
+  background-color: #009fe3;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 8px;
+  color: #ffffff;
+  transition: 1s ease-in-out;
+}
+.btn:hover{
+  background-color: #ffffff;
+  color: #009fe3;
+}
+.text-danger{
+  margin-top: -30px;
+  font-size: 20px;
+}
+

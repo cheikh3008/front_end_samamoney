@@ -1,0 +1,118 @@
+<div class="card container">
+  <div style="overflow:auto;">
+    <div class="mat-elevation-z8" >
+      <h2 >RECHERCHE PAR PERIODE
+      </h2>
+      <mat-divider></mat-divider>
+      <form [formGroup]="searchForm"  >
+        <mat-form-field appearance="outline" >
+          <mat-label>Date de début</mat-label>
+            <input matInput placeholder="Tapez la date de début" type="date"  formControlName="dateDebut"  >
+          <mat-error *ngIf="submitted && f.dateDebut.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.dateDebut.errors.required">Veuillez taper la date de début</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+          <mat-label >Date de fin</mat-label>
+            <input matInput placeholder="Tapez la date de fin" type="date"   formControlName="dateFin"  >
+          <mat-error *ngIf="submitted && f.dateFin.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.dateFin.errors.required">Veuillez taper la date de fin</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="type"  placeholder="Type de transaction" style="padding: 3px; height: 15px;" >
+              <mat-option value="envoi" >Envoi</mat-option>
+              <mat-option value="retrait" >Retrait</mat-option>
+          </mat-select>
+          <mat-error *ngIf="submitted && f.type.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.type.errors.required">Veuillez choisir un type  </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline"  >
+          <mat-label>Ninea</mat-label>
+            <input matInput placeholder="Tapez le ninea" type="text" formControlName="ninea" style="padding: 3px " >
+          <mat-error *ngIf="submitted && f.ninea.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.ninea.errors.required">Veuillez taper le ninea</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <button mat-flat-button  type="submit"  (click)="onSubmitSearch()" class="search-parts" >RECHERCHER</button>
+      </form>
+    </div>
+  </div>
+  </div>
+  <div class="card container" style="margin-top: 15px" *ngIf="dataSearch && envoi" >
+
+    <div style="overflow:auto;" >
+      <div class="mat-elevation-z8" >
+      <mat-table [dataSource]=" listData"  >
+        <mat-header-row *matHeaderRowDef="displayedColumnsEnvoi"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumnsEnvoi;"></mat-row>
+
+        <ng-container matColumnDef="code" >
+          <mat-header-cell *matHeaderCellDef>CODE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.code}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="montant">
+          <mat-header-cell *matHeaderCellDef  >MONTANT</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.montant}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="comEnvoi">
+          <mat-header-cell *matHeaderCellDef  >COMISSION ENVOI</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.comEnvoi}} FCFA
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateEnvoi">
+          <mat-header-cell *matHeaderCellDef  >DATE D'ENVOI </mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.dateEnvoi | date: 'dd/MM/yyyy - H:m'}}
+          </mat-header-cell>
+        </ng-container>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>
+  <div class="card container" style="margin-top: 15px" *ngIf="dataSearch && retrait " >
+
+  <div style="overflow:auto;" >
+    <div class="mat-elevation-z8" >
+      <mat-table [dataSource]=" listData"  >
+        <mat-header-row *matHeaderRowDef="displayedColumnsRetrait"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumnsRetrait;"></mat-row>
+
+        <ng-container matColumnDef="code" >
+          <mat-header-cell *matHeaderCellDef>CODE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.code}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="montant">
+          <mat-header-cell *matHeaderCellDef  >MONTANT</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.montant}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="comRetrait">
+          <mat-header-cell *matHeaderCellDef  >COMISSION RETRAIT</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.comRetrait}} FCFA
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateRetrait">
+          <mat-header-cell *matHeaderCellDef  >DATE DE RETRAIT </mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.dateRetrait | date: 'dd/MM/yyyy - H:m'}}
+          </mat-header-cell>
+        </ng-container>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>

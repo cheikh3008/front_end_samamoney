@@ -1,0 +1,106 @@
+<div class="nav">
+  <mat-nav-list>
+  <div class="profil-card">
+    <img src="assets/img/caricature-profil-homme-affaires_18591-58479.jpg" class="profil-img" alt="Image de profil">
+    <div class="header">
+      <h2>{{email}}</h2>
+      <p>{{roles}}</p>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+    <div class="multi-level">
+      <div class="item" >
+        <input type="checkbox"  id="Dashboard">
+        <div class="test">
+          <i class="fas fa-home logo"></i><a routerLinkActive="list-item-active" routerLink="/dashboard"><label for="Dashboard">Dashboard</label></a>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="item"  *ngIf="isAdmin() ">
+        <input type="checkbox"  id="user">
+        <div class="test">
+        <i class="fas fa-user logo"></i><label for="user">Utilisatuers</label>
+        </div>
+        <ul>
+            <i class="fas fa-plus logo  sub-logo"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isAdmin() " routerLink="/add-users">Ajouter </a></li>
+            <i class="fas fa-list logo  sub-logo"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isAdmin()" routerLink="/list-users">Lister </a></li>
+            <i class="fas fa-list logo  sub-logo"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isAdmin()" routerLink="/list-partenaires">Lister partenaire </a></li>
+        </ul>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="item" *ngIf="isAdmin() || isCaissier() || isPartenaire() || isUserPartenaire() ">
+        <input type="checkbox" id="partenaire">
+        <div class="test">
+          <i class="fas fa-handshake logo"></i><label for="partenaire">Partenaire</label>
+        </div>
+        <ul>
+          <li><div class="sub-item">
+            <input type="checkbox"  id="partenaire-compte" *ngIf="isAdmin() || isPartenaire()">
+            <div class="test">
+              <i class="fas fa-coins logo "></i><label for="partenaire-compte">Compte</label>
+            </div>
+            <ul>
+                <i class="fas fa-plus logo sub-logo" *ngIf="isAdmin()"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isAdmin()" routerLink="/add-comptes">Ajouter </a></li>
+               <i class="fas fa-list logo sub-logo" *ngIf="isAdmin() || isPartenaire()"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isAdmin() || isPartenaire()" routerLink="/list-comptes">Lister </a></li>
+            </ul>
+          </div></li>
+          <li><div class="sub-item">
+            <input type="checkbox"  id="partenaire-depot"  *ngIf="isAdmin() || isCaissier() || isPartenaire()" >
+            <div class="test">
+               <i class="fas fa-hand-holding-usd logo "></i><label for="partenaire-depot">Dépot</label>
+            </div>
+            <ul>
+                <i class="fas fa-plus logo sub-logo" *ngIf="isAdmin() || isCaissier() "></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isAdmin() || isCaissier() " routerLink="/add-depots">déposer</a></li>
+              <i class="fas fa-list logo sub-logo" *ngIf="isAdmin() || isCaissier() || isPartenaire()"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isAdmin() || isCaissier() || isPartenaire()"  routerLink="/list-depots">Lister </a></li>
+            </ul>
+          </div></li>
+          <li><div class="sub-item" *ngIf="isUserPartenaire() || isPartenaire()">
+            <input type="checkbox"  id="partenaire-transaction" >
+            <div class="test">
+              <i class="fas fa-sync-alt logo"></i><label for="partenaire-transaction">Transaction</label>
+            </div>
+            <ul>
+              <i class="fas fa-share logo sub-logo"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isUserPartenaire() || isPartenaire()" routerLink="/envoi"> envoyer</a></li>
+              <i class="fas fa-list logo  sub-logo"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isUserPartenaire() || isPartenaire()" routerLink="/list-envois">Liste des envois </a></li>
+              <i class="fas fa-reply logo sub-logo"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isUserPartenaire() || isPartenaire()" routerLink="/retrait">retirer</a></li>
+              <i class="fas fa-list logo  sub-logo"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isUserPartenaire() || isPartenaire()" routerLink="/list-retraits">Lister des retraits </a></li>
+            </ul>
+          </div></li>
+          <li><div class="sub-item" *ngIf="isPartenaire()">
+            <input type="checkbox"  id="partenaire-userp">
+            <div class="test">
+            <i class="fas fa-user logo"></i><label for="partenaire-userp">Utilisateur </label>
+            </div>
+            <ul>
+              <i class="fas fa-plus logo sub-logo"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isPartenaire()" routerLink="/add-user-partenaire">Ajouter </a></li>
+              <i class="fas fa-list logo sub-logo"></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isPartenaire()" routerLink="/list-user-partenaire">Lister </a></li>
+            </ul>
+          </div></li>
+          <li><div class="sub-item" *ngIf="isPartenaire()">
+            <input type="checkbox"  id="partenaire-affectation">
+            <div class="test">
+              <i class="fas fa-link logo"></i><label for="partenaire-affectation">Affectation </label>
+            </div>
+            <ul>
+                <i class="fas fa-plus logo sub-logo "></i><li><a routerLinkActive="list-item-active" class="item-a" *ngIf="isPartenaire()" routerLink="/add-affectations">Affecter</a></li>
+            </ul>
+          </div></li>
+        </ul>
+
+      </div>
+      <mat-divider></mat-divider>
+      <div class="item"  *ngIf="isAdmin() || isPartenaire()">
+        <input type="checkbox"  id="parts">
+        <div class="test">
+          <i class="fas fa-file-invoice-dollar logo"></i><label for="parts">Parts</label>
+        </div>
+        <ul>
+            <i class="fas fa-plus logo sub-logo"></i><li><a routerLinkActive="list-item-active" routerLink="/list-parts" class="item-a">Liste des parts</a></li>
+            <i class="fas fa-list logo sub-logo"></i><li><a routerLinkActive="list-item-active" routerLink="/payer-parts" class="item-a">Payer des parts</a></li>
+        </ul>
+      </div>
+    </div>
+
+</mat-nav-list>
+</div>

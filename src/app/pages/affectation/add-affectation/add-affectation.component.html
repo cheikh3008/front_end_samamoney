@@ -1,0 +1,54 @@
+<div class="card container">
+  <h2 >AFFECTATION D'UN UTILISATEUR A UN COMPTE
+  </h2>
+  <div style="overflow:auto; margin-bottom: 30px">
+    <div class="mat-elevation-z8" >
+      <mat-divider></mat-divider>
+      <form [formGroup]="afeectationForm"  >
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="user" placeholder="User"  style="height: 20px;"   >
+            <label>
+              <mat-option *ngFor="let user of user" [value]="user.id">
+                {{user.id }} - {{user.prenom }}- {{user.nom }} - {{user.email }} - {{user.libelle }}
+              </mat-option>
+            </label>
+          </mat-select>
+          <mat-error *ngIf="submitted && f.user.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.user.errors.required">Veuillez choisir un utilisateur</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="compte" placeholder="Compte"  style="height: 20px;"   >
+            <label>
+              <mat-option *ngFor="let compte of compte" [value]="compte.id">
+                {{compte.id }} - {{compte.numCompte }} - {{compte.solde }} - {{compte.createdAt | date: 'dd/MM/yyyy' }}
+              </mat-option>
+            </label>
+          </mat-select>
+          <mat-error *ngIf="submitted && f.compte.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.compte.errors.required">Veuillez choisir un compte</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Date début</mat-label>
+          <label>
+            <input matInput placeholder="Tapez la date de début" formControlName="dateDebut" type="date" class="input">
+          </label>
+          <mat-error *ngIf="submitted && f.dateDebut.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.dateDebut.errors.required">Veuillez choisir une date début</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Date fin</mat-label>
+          <label>
+            <input matInput placeholder="Tapez la date de fin" formControlName="dateFin" type="date">
+          </label>
+          <mat-error *ngIf="submitted && f.dateFin.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.dateFin.errors.required">Veuillez choisir une date fin</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <button mat-flat-button class="btn" type="submit"  (click)="onSubmitForm()" >ENREGISTRER</button>
+      </form>
+    </div>
+  </div>
+</div>

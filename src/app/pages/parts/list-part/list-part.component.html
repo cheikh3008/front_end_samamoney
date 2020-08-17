@@ -1,0 +1,120 @@
+<div class="card container" *ngIf="isAdmin()" >
+  <h2 class="mt-2 " >LISTE DES PARTS
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/payer-parts" class="add" >
+      <mat-icon class="add-user" title="Ajouter">add_circle  </mat-icon>
+    </a>
+  </h2>
+  <div style="overflow:auto;" >
+
+    <div class="mat-elevation-z8" >
+
+      <mat-divider></mat-divider>
+      <mat-table [dataSource]=" listData"  >
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+
+        <ng-container matColumnDef="code" >
+          <mat-header-cell *matHeaderCellDef>CODE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.code}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="montant">
+          <mat-header-cell *matHeaderCellDef  >MONTANT</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.montant}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="comSysteme">
+          <mat-header-cell *matHeaderCellDef  >COMISSION SYSTEME</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.comSysteme}} FCFA
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="comEtat">
+          <mat-header-cell *matHeaderCellDef  >COMISSION ETAT</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.comEtat}} FCFA
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="comEnvoi">
+          <mat-header-cell *matHeaderCellDef  >COMISSION ENVOI</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.comEnvoi}} FCFA
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="comRetrait">
+          <mat-header-cell *matHeaderCellDef  >COMISSION RETRAIT</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.comRetrait}} FCFA
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateEnvoi">
+          <mat-header-cell *matHeaderCellDef  >DATE </mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.dateEnvoi.date| date: 'dd/MM/yyyy - H:m'}}
+          </mat-header-cell>
+        </ng-container>
+
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>
+<div class="card container" *ngIf="isPartenaire()" >
+  <h2 class="mt-2 " >LISTE DES PARTS
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/payer-parts" class="add" >
+      <mat-icon class="add-user" title="Ajouter">add_circle  </mat-icon>
+    </a>
+  </h2>
+  <div style="overflow:auto;" >
+
+    <div class="mat-elevation-z8" >
+
+      <mat-divider></mat-divider>
+      <mat-table [dataSource]=" listData"  >
+        <mat-header-row *matHeaderRowDef="displayedColumnsPartenaire"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumnsPartenaire;"></mat-row>
+
+        <ng-container matColumnDef="code" >
+          <mat-header-cell *matHeaderCellDef>CODE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.code}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="montant">
+          <mat-header-cell *matHeaderCellDef  >MONTANT</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.montant}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="comEnvoi">
+          <mat-header-cell *matHeaderCellDef  >COMISSION ENVOI</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.comEnvoi}} FCFA
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="comRetrait">
+          <mat-header-cell *matHeaderCellDef  >COMISSION RETRAIT</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.comRetrait}} FCFA
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateEnvoi">
+          <mat-header-cell *matHeaderCellDef  >DATE </mat-header-cell>
+          <mat-header-cell *matCellDef="let dataParts">
+            {{dataParts.dateEnvoi.date| date: 'dd/MM/yyyy - H:m'}}
+          </mat-header-cell>
+        </ng-container>
+
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>

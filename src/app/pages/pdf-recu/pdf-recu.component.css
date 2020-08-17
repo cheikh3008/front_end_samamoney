@@ -1,0 +1,61 @@
+fieldset{
+  width: 99%;
+  border:1px solid black;
+  padding: 15px;
+  margin: 5px;
+}
+.titre-recu{
+  margin-top: 0;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 10px;
+}
+h6{
+  padding-right: 10px;
+  float: right;
+}
+.strong{
+  border:1px solid black;
+  padding: 5px;
+  margin-top: -15px;
+}
+legend{
+  padding-left: 15px;
+  margin: 10px;
+}
+table{
+  width: 100%;
+}
+td{
+  padding-left: 10px;
+  font-size: 12px;
+  line-height: 15px;
+}
+h5{
+  font-size: 12px;
+  float: right;
+  padding: 10px;
+  margin: 10px;
+}
+h4{
+  margin: 10px;
+  font-size: 20px;
+}
+p{
+  padding: 0 10px;
+  font-size:15px ;
+  font-weight: 400;
+}
+.left{
+  margin: 2px 0;
+  padding-left: 20px;
+  float: left;
+  text-decoration: underline;
+}
+.right{
+  margin: 0;
+  float: right;
+  text-decoration: underline;
+}

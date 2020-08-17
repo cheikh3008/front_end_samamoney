@@ -1,0 +1,108 @@
+<div class="card container"  *ngIf="isUserPartenaire()">
+  <div style="overflow:auto;  margin:15px">
+    <div class="mat-elevation-z8" *ngFor="let infos of infosCompte" >
+      <div style="float: left">NUMERO DE COMPTE: <strong>{{infos.numCompte}}</strong></div>
+      <div style="float: right">SOLDE: <strong>{{infos.solde}} FCA</strong></div>
+    </div>
+  </div>
+</div>
+<div class="card container" *ngIf="isUserPartenaire() || isPartenaire()" style="margin-top: 10px">
+  <h2 >RETIRER DE L'ARGENT
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/envoi" class="add" >
+      <mat-icon class="add-user" title="Ajouter">add_circle  </mat-icon> Envoi
+    </a>
+  </h2>
+  <div style="overflow:auto; margin-bottom: 30px">
+      <form [formGroup]="searchForm"  class="form-search">
+        <mat-form-field appearance="outline">
+          <mat-label>Code</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le code" formControlName="code"  class="input" type="search">
+          </label>
+          <mat-error *ngIf="submitted && f.code.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.code.errors.required">Veuillez taper le code</mat-error>
+            <mat-error *ngIf="f.code.errors.pattern">Le code doit contenir seulement 9 chiffres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <button mat-flat-button  type="submit"  (click)="onSubmitSearch()"  class="search" >RECHERCHER</button>
+      </form>
+  <div *ngFor="let data of dataSearch">
+
+      <mat-divider></mat-divider>
+      <form [formGroup]="retraitForm"  >
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom émetteur</mat-label>
+          <label>
+            <input matInput disabled [value]="data.prenomE" class="input">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nom émetteur</mat-label>
+          <label>
+            <input matInput disabled [value]="data.nomE">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Téléphone émetteur</mat-label>
+          <label>
+            <input matInput disabled [value]="data.telephoneE">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>N° pièce d'identité émetteur</mat-label>
+          <label>
+            <input matInput disabled [value]="data.npieceE">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom Bénéficiaire</mat-label>
+          <label>
+            <input matInput disabled [value]="data.prenomB" class="input">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nom émetteur</mat-label>
+          <label>
+            <input matInput disabled [value]="data.nomB">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Téléphone du bénéficiaire</mat-label>
+          <label>
+            <input matInput disabled [value]="data.telephoneB">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Montant à retirer</mat-label>
+          <label>
+            <input matInput disabled [value]="data.montant" >
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>N° de la pièce d'identité bénéficiaire</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le n° de la pièce d'identité bénéficiaire " formControlName="npieceB" >
+          </label>
+          <mat-error *ngIf="submitted && g.npieceB.errors" class="invalid-feedback">
+            <mat-error *ngIf="g.npieceB.errors.required">Veuillez taper le n° de la pièce d'identité du bénéficiaire</mat-error>
+            <mat-error *ngIf="g.npieceB.errors.pattern">Le n° de la pièce d'identité doit contenir 9 chiffres au maximun</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" *ngIf="isPartenaire()" >
+          <mat-select formControlName="numCompte" placeholder="Compte"  class="select"  >
+            <label>
+              <mat-option *ngFor="let compte of comptes" [value]="compte.numCompte">
+                {{compte.id}}   --   {{compte.numCompte}}   --   {{compte.solde}}
+              </mat-option>
+            </label>
+          </mat-select>
+          <mat-error *ngIf="submitted && g.numCompte.errors" class="invalid-feedback">
+            <mat-error *ngIf="g.numCompte.errors.required">Veuillez choisir un compte pour faire la transaction </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <button mat-flat-button  class="btn" type="submit"  (click)="onSubmitForm()" >ENREGISTRER</button>
+      </form>
+    </div>
+  </div>
+</div>
+

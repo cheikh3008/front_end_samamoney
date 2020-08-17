@@ -1,0 +1,162 @@
+<div id="dataEnvoi" >
+  <div *ngFor="let data of dataEnvoi">
+    <h3 class="titre-recu">Reçu d'envoi</h3>
+    <div>
+      <h6>Date: {{data.dateEnvoi |   date:'dd-MM-yyyy hh:mm:ss '}}</h6>
+    </div>
+    <div>
+      <form>
+        <fieldset>
+          <legend><strong class="strong">CASH MONEY</strong></legend>
+          <table>
+            <fieldset>
+              <legend><strong class="strong">Envoyeur</strong></legend>
+              <tr>
+                <td style="width: 30%">Pays:</td>
+                <td style="width: 30%">SN</td>
+                <td style="width: 30%">Céllulaire:</td>
+                <td style="width: 30%">{{data.telephoneE}}</td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Prenom:</td>
+                <td style="width: 30%">{{data.prenomE | uppercase}}</td>
+                <td style="width: 30%">Nom:</td>
+                <td style="width: 30%">{{data.nomE | uppercase}}</td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Numéro:</td>
+                <td style="width: 30%">{{data.npieceE}}</td>
+                <td style="width: 30%">Type:</td>
+                <td style="width: 30%">CI</td>
+              </tr>
+            </fieldset>
+            <fieldset>
+              <legend><strong class="strong">Bénéficiaire</strong></legend>
+              <tr>
+                <td style="width: 30%">Pays:</td>
+                <td style="width: 30%">SN:</td>
+                <td style="width: 30%">Céllulaire:</td>
+                <td style="width: 30%">{{data.telephoneB}}</td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Prenom:</td>
+                <td style="width: 30%">{{data.prenomB | uppercase}}</td>
+                <td style="width: 30%">Nom:</td>
+                <td style="width: 30%">{{data.nomB | uppercase}}</td>
+              </tr>
+            </fieldset>
+
+            <fieldset>
+              <legend><strong class="strong">Transaction</strong></legend>
+              <tr>
+                <td style="width: 30%">Code d'envoi:</td>
+                <td style="width: 30%"></td>
+                <td style="width: 30%"><strong>{{data.code}}</strong></td>
+                <td style="width: 30%"></td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Montant à envoyer:</td>
+                <td style="width: 60%"></td>
+                <td style="width: 30%">{{data.montant }} FCA</td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Frais:</td>
+                <td style="width: 60%"></td>
+                <td style="width: 30%">{{data.frais}} FCA</td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Total:</td>
+                <td style="width: 60%"></td>
+                <td style="width: 30%">{{data.montant + data.frais}} FCA</td>
+              </tr>
+            </fieldset>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+      <div>
+        <p class="left">Caissier</p>
+        <p class="right">Client</p>
+      </div>
+  </div>
+</div>
+
+<div id="dataRetrait" >
+  <div *ngFor="let data of dataRetrait">
+    <h3 class="titre-recu">Reçu de retrait</h3>
+    <div>
+      <h6>Date: {{data.dateRetrait |   date:'dd-MM-yyyy hh:mm:ss '}}</h6>
+    </div>
+    <div>
+      <form>
+        <fieldset>
+          <legend><strong class="strong">CASH MONEY</strong></legend>
+          <table>
+            <fieldset>
+              <legend><strong class="strong">Envoyeur</strong></legend>
+              <tr>
+                <td style="width: 30%">Pays:</td>
+                <td style="width: 30%">SN</td>
+                <td style="width: 30%">Céllulaire:</td>
+                <td style="width: 30%">{{data.telephoneE}}</td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Prenom:</td>
+                <td style="width: 30%">{{data.prenomE | uppercase}}</td>
+                <td style="width: 30%">Nom:</td>
+                <td style="width: 30%">{{data.nomE | uppercase}}</td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Numéro:</td>
+                <td style="width: 30%">{{data.npieceE}}</td>
+                <td style="width: 30%">Type:</td>
+                <td style="width: 30%">CI</td>
+              </tr>
+            </fieldset>
+            <fieldset>
+              <legend><strong class="strong">Bénéficiaire</strong></legend>
+              <tr>
+                <td style="width: 30%">Pays:</td>
+                <td style="width: 30%">SN:</td>
+                <td style="width: 30%">Céllulaire:</td>
+                <td style="width: 30%">{{data.telephoneB}}</td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Prenom:</td>
+                <td style="width: 30%">{{data.prenomB | uppercase}}</td>
+                <td style="width: 30%">Nom:</td>
+                <td style="width: 30%">{{data.nomB | uppercase}}</td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Numéro:</td>
+                <td style="width: 30%">{{data.npieceB}}</td>
+                <td style="width: 30%">Type:</td>
+                <td style="width: 30%">CI</td>
+              </tr>
+            </fieldset>
+
+            <fieldset>
+              <legend><strong class="strong">Transaction</strong></legend>
+              <tr>
+                <td style="width: 30%">Code d'envoi:</td>
+                <td style="width: 30%"></td>
+                <td style="width: 30%"><strong>{{data.code}}</strong></td>
+                <td style="width: 30%"></td>
+              </tr>
+              <tr>
+                <td style="width: 30%">Montant à envoyer:</td>
+                <td style="width: 60%"></td>
+                <td style="width: 30%">{{data.montant }} FCA</td>
+              </tr>
+
+            </fieldset>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+    <div>
+      <p class="left">Caissier</p>
+      <p class="right">Client</p>
+    </div>
+  </div>
+</div>

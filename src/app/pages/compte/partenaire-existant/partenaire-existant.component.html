@@ -1,0 +1,67 @@
+<div class="card container" *ngIf="isAdmin()">
+  <div style="overflow:auto; margin-bottom: 30px">
+  <h2 >CREER UN COMPTE POUR UN PARTENAIRE EXISTANT
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/add-comptes" class="add" >
+      <mat-icon class="add-user" title="Ajouter">add_circle  </mat-icon> Nouveau
+    </a>
+  </h2>
+      <mat-divider></mat-divider>
+      <form [formGroup]="searchForm" class="form-search" >
+        <mat-form-field appearance="outline">
+          <mat-label>Ninea</mat-label>
+          <label>
+            <input matInput placeholder="Rechercher par NINIEA"  formControlName="ninea" type="search">
+          </label>
+          <mat-error *ngIf="submitted && f.ninea.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.ninea.errors.required">Veuillez taper le ninea</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <button mat-flat-button  type="submit"  (click)="onSubmitSearch()" class="search" >RECHERCHER</button>
+      </form>
+      <form [formGroup]="compteForm" *ngFor="let data of dataSearch " >
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le prénom" [value]="data.prenom" class="input" disabled >
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nom</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le nom" [value]="data.nom" disabled>
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <label>
+            <input matInput placeholder="Tapez l'email" [value]="data.email" disabled>
+          </label>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Ninea</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le ninea" [value]="data.ninea"  disabled>
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Régistre de commerce</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le régistre de commerce" [value]="data.rc" disabled>
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Montant à déposer</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le montant à déposer" formControlName="montant" >
+          </label>
+          <mat-error *ngIf="submitted && g.montant.errors" class="invalid-feedback">
+            <mat-error *ngIf="g.montant.errors.required">Veuillez taper le montant à déposer (min = 500.000 F )</mat-error>
+            <mat-error *ngIf="g.montant.errors.pattern">Le monatnt doit contenir seulement des chiffres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <button mat-flat-button class="btn"  type="submit"  (click)="onSubmitForm()" >ENREGISTRER</button>
+      </form>
+    </div>
+</div>
+

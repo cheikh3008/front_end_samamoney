@@ -1,0 +1,31 @@
+mat-toolbar{
+  background-color: #009fe3;
+}
+ul{
+  list-style: none;
+}
+.logomenu{
+  color: #ffffff;
+  padding: 10px;
+  margin-top: 11px;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+.logomenu:hover{
+  color: dodgerblue;
+  background-color: #ffffff;
+}
+span{
+  margin-bottom: -2px;
+  color: #ffffff;
+}
+.menu-burger{
+  padding-left: 100px;
+  font-size: 30px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+mat-icon{
+  color: #ffffff;
+  margin-top: 10px;
+}

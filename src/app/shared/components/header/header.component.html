@@ -1,0 +1,20 @@
+<mat-toolbar >
+  <mat-toolbar-row>
+    <span> CASH-MONEY</span>
+    <button mat-icon-button >
+      <mat-icon class="menu-burger" >
+        menu
+      </mat-icon>
+    </button>
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="10px">
+        <li>
+          <i class="fas fa-bell logomenu"></i>
+        </li>
+        <li>
+          <i class="fas fa-sign-out-alt logomenu" (click)="onLogout()"></i>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

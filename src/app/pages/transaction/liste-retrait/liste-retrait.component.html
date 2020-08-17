@@ -1,0 +1,91 @@
+<div class="card container" *ngIf="isPartenaire() || isUserPartenaire()">
+  <h2 class="mt-2 " >LISTE DES RETRAITS
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/retrait" class="add" >
+      <mat-icon class="add-user" title="Ajouter">add_circle  </mat-icon>
+    </a>
+  </h2>
+  <div style="overflow:auto;">
+
+    <div class="mat-elevation-z8" >
+
+      <mat-divider></mat-divider>
+      <mat-table [dataSource]=" listData" >
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+
+        <ng-container matColumnDef="prenomE" >
+          <mat-header-cell *matHeaderCellDef>PRENOM EMETTEUR</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.prenomE}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nomE">
+          <mat-header-cell *matHeaderCellDef  >NOM EMETTEUR</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.nomE}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="telephoneE">
+          <mat-header-cell *matHeaderCellDef  >TELEPHONE EMETTEUR</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.telephoneE}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="npieceE">
+          <mat-header-cell *matHeaderCellDef  >N° PIECE EMETTEUR</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.npieceE}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="prenomB" >
+          <mat-header-cell *matHeaderCellDef>PRENOM BENEFICIAIRE </mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.prenomB}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="nomB">
+          <mat-header-cell *matHeaderCellDef  >NOM BENEFICIAIRE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeEnvoi">
+            {{dataListeEnvoi.nomB}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="telephoneB">
+          <mat-header-cell *matHeaderCellDef  >TELEPHONE BENEFICIAIRE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.telephoneB}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="npieceB">
+          <mat-header-cell *matHeaderCellDef  >N° PIECE BENEFICIAIRE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.npieceB}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="montant">
+          <mat-header-cell *matHeaderCellDef  >MONTANT </mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.montant}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateEnvoi">
+          <mat-header-cell *matHeaderCellDef  >DATE D'ENVOI </mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.dateEnvoi.date |   date:'dd-MM-yyyy hh:mm:ss '}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateRetrait">
+          <mat-header-cell *matHeaderCellDef  >DATE DE RETRAIT </mat-header-cell>
+          <mat-header-cell *matCellDef="let dataListeRetrait">
+            {{dataListeRetrait.dateRetrait.date |   date:'dd-MM-yyyy hh:mm:ss '}}
+          </mat-header-cell>
+        </ng-container>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>
+
+

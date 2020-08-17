@@ -1,0 +1,83 @@
+<div class="card container" *ngIf="isAdmin()">
+  <h2 class="mt-2 " >LISTE DES PARTENAIRES </h2>
+  <div style="overflow:auto;">
+
+    <div class="mat-elevation-z8"   >
+
+      <mat-divider></mat-divider>
+      <mat-table [dataSource]=" listData"  >
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+        <ng-container matColumnDef="id" >
+          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataPartenaire">
+            {{dataPartenaire.id}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="prenom">
+          <mat-header-cell *matHeaderCellDef  >PRENOM</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataPartenaire">
+            {{dataPartenaire.prenom}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nom">
+          <mat-header-cell *matHeaderCellDef  >NOM</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataPartenaire">
+            {{dataPartenaire.nom}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef   >EMAIL</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataPartenaire">
+            {{dataPartenaire.email}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="ninea" >
+          <mat-header-cell *matHeaderCellDef>NINEA</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataPartenaire" >
+            {{dataPartenaire.ninea}}
+          </mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="rc">
+          <mat-header-cell *matHeaderCellDef  >REGISTRE DE COMMERCE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataPartenaire">
+            {{dataPartenaire.rc}}
+          </mat-header-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="role">
+          <mat-header-cell *matHeaderCellDef  >ROLE</mat-header-cell>
+          <mat-header-cell *matCellDef="let dataPartenaire">
+            {{dataPartenaire.libelle}}
+          </mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="isActive">
+          <mat-header-cell *matHeaderCellDef  >STATUS</mat-header-cell>
+          <mat-header-cell *matCellDef="let user">
+            <div *ngIf="user.isActive; else elseBlock">
+              <button class="action-btn" (click)="onStatus(user.id)"  title="Activer">
+                <mat-icon>lock_open</mat-icon>
+              </button>
+            </div>
+            <ng-template #elseBlock>
+              <button  class="action-btn" (click)="onStatus(user.id)"  title="Desactiver">
+                <mat-icon color="warn">block</mat-icon>
+              </button>
+            </ng-template>
+          </mat-header-cell>
+        </ng-container>
+
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+  </div>
+</div>
+
+

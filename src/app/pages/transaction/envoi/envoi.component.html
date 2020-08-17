@@ -1,0 +1,136 @@
+<div class="card container"  *ngIf="isUserPartenaire()">
+  <div style="overflow:auto;  margin:15px">
+    <div class="mat-elevation-z8" *ngFor="let infos of infosCompte" >
+      <div style="float: left">NUMERO DE COMPTE: <strong>{{infos.numCompte}}</strong></div>
+      <div style="float: right">SOLDE: <strong>{{infos.solde}} FCA</strong></div>
+    </div>
+  </div>
+</div>
+<div class="card container" *ngIf="isUserPartenaire() || isPartenaire()" style="margin-top: 10px">
+  <h2 >ENVOYER DE L'ARGENT
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/retrait" class="add" >
+      <mat-icon class="add-user" title="Ajouter">add_circle  </mat-icon> Retrait
+    </a>
+  </h2>
+  <div style="overflow:auto; margin-bottom: 30px">
+
+    <div class="mat-elevation-z8" >
+      <mat-divider></mat-divider>
+      <form [formGroup]="envoiForm"  >
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom de l'émetteur</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le prénom de l'émetteur" formControlName="prenomE" class="input">
+          </label>
+          <mat-error *ngIf="submitted && f.prenomE.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.prenomE.errors.required">Veuillez taper le prénom de l'émetteur</mat-error>
+            <mat-error *ngIf="f.prenomE.errors.pattern">Le prénom doit contenir seulement des lettres </mat-error>
+            <mat-error *ngIf="f.prenomE.errors.minlength">Le prénom doit contenir au minimu 3 lettres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nom de l'émetteur</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le nom de l'émetteur"  formControlName="nomE">
+          </label>
+          <mat-error *ngIf="submitted && f.nomE.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.nomE.errors.required">Veuillez taper le nom de l'émetteur</mat-error>
+            <mat-error *ngIf="f.nomE.errors.pattern">Le nom doit contenir seulement des lettres </mat-error>
+            <mat-error *ngIf="f.nomE.errors.minlength">Le nom doit contenir au minimu 2 lettres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Téléphone de l'émetteur</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le n° téléphone de l'émetteur"   formControlName="telephoneE">
+          </label>
+          <mat-error *ngIf="submitted && f.telephoneE.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.telephoneE.errors.required">Veuillez taper le numéro de téléphone de l'émetteur</mat-error>
+            <mat-error *ngIf="f.telephoneE.errors.pattern">Le numéro de téléphone n'est pas valide </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>N° pièce d'identité de l'émetteur</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le n° de la pièce d'identité de l'émetteur"  formControlName="npieceE">
+          </label>
+          <mat-error *ngIf="submitted && f.npieceE.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.npieceE.errors.required">Veuillez taper le n° de la pièce d'identité de l'émetteur</mat-error>
+            <mat-error *ngIf="f.npieceE.errors.pattern">Le n° de la pièce d'identité doit contenir 9 chiffres au maximun</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom du bénéficiaire</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le prénom du Bénéficiaire" formControlName="prenomB" class="input">
+          </label>
+          <mat-error *ngIf="submitted && f.prenomB.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.prenomB.errors.required">Veuillez taper le prénom du bénéficiaire</mat-error>
+            <mat-error *ngIf="f.prenomB.errors.pattern">Le prénom doit contenir seulement des lettres </mat-error>
+            <mat-error *ngIf="f.prenomB.errors.minlength">Le prénom doit contenir au minimu 3 lettres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nom du bénéficiaire</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le nom du Bénéficiaire"  formControlName="nomB">
+          </label>
+          <mat-error *ngIf="submitted && f.nomB.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.nomB.errors.required">Veuillez taper le nom du bénéficiaire</mat-error>
+            <mat-error *ngIf="f.nomB.errors.pattern">Le nom doit contenir seulement des lettres </mat-error>
+            <mat-error *ngIf="f.nomB.errors.minlength">Le nom doit contenir au minimu 2 lettres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Téléphone du bénéficiaire</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le n° téléphone du Bénéficiaire" formControlName="telephoneB">
+          </label>
+          <mat-error *ngIf="submitted && f.telephoneB.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.telephoneB.errors.required">Veuillez taper le numéro de téléphone du bénéficiaire</mat-error>
+            <mat-error *ngIf="f.telephoneB.errors.pattern">Le numéro de téléphone n'est pas valide </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Montant à déposer</mat-label>
+          <label>
+            <input matInput placeholder="Tapez le montant à déposer" formControlName="montant" >
+          </label>
+          <mat-error *ngIf="submitted && f.montant.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.montant.errors.required">Veuillez taper le montant à envoyer </mat-error>
+            <mat-error *ngIf="f.montant.errors.pattern">Le monatnt doit contenir seulement des chiffres </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" *ngIf="isPartenaire()" >
+          <mat-select formControlName="numCompte" placeholder="Compte"  class="select"  >
+            <label>
+              <mat-option *ngFor="let compte of comptes" [value]="compte.numCompte">
+                {{compte.id}}   --   {{compte.numCompte}}   --   {{compte.solde}}
+              </mat-option>
+            </label>
+          </mat-select>
+        </mat-form-field>
+        <button mat-flat-button class="btn" type="submit"  (click)="onSubmitForm()"  >ENREGISTRER</button>
+      </form>
+    </div>
+  </div>
+<div id="element" >
+    <div *ngFor="let dataEnvoi of dataEnvoi"  >
+
+          <h1>
+            {{dataEnvoi.prenomE}}
+          </h1>
+
+      <h1>
+        {{dataEnvoi.nomE}}
+      </h1>
+      <h1>
+        {{dataEnvoi.telephoneE}}
+      </h1>
+
+
+      </div>
+  </div>
+  <!--<button type="submit" (click)="getPdf()">click</button>-->
+</div>
+
